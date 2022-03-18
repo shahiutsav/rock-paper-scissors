@@ -3,37 +3,38 @@ const computerArmory = ["rock", "paper", "scissors"]
 
 // Randomly choose an object from the list
 function computerPlay() {
-    const computerWeapon =
+    const computerSelection =
         computerArmory[Math.floor(Math.random() * computerArmory.length)]
-    return computerWeapon
+    return computerSelection
 }
 
+// Take user input
 function playerPlay() {
-    playerInput = prompt("Please enter your 'weapon': ")
-    playerWeapon = playerInput.toLowerCase()
-    return playerWeapon
+    playerInput = prompt("Please enter your hand: ")
+    playerSelection = playerInput.toLowerCase()
+    return playerSelection
 }
 
 // compare the user input with computer's selection
-function compareWeapon(computerWeapon, playerWeapon) {
-    console.log(computerWeapon)
-    console.log(playerWeapon)
-    if (computerWeapon == "scissors" && playerWeapon == "paper") {
+function compareSelection(computerSelection, playerSelection) {
+    console.log(computerSelection)
+    console.log(playerSelection)
+    if (computerSelection == "scissors" && playerSelection == "paper") {
         console.log("You lose! Scissors beats Paper")
         return "You lose! Scissors beats Paper"
-    } else if (computerWeapon == "rock" && playerWeapon == "scissors") {
+    } else if (computerSelection == "rock" && playerSelection == "scissors") {
         console.log("You lose! Rock beats Scissors")
         return "You lose! Rock beats Scissors"
-    } else if (computerWeapon == "paper" && playerWeapon == "rock") {
+    } else if (computerSelection == "paper" && playerSelection == "rock") {
         console.log("You lose! Paper beats Rock")
         return "You lose! Paper beats Rock"
-    } else if (computerWeapon == "paper" && playerWeapon == "scissors") {
+    } else if (computerSelection == "paper" && playerSelection == "scissors") {
         console.log("You Win! Scissors beats Paper")
         return "You Win! Scissors beats Paper"
-    } else if (computerWeapon == "scissors" && playerWeapon == "rock") {
+    } else if (computerSelection == "scissors" && playerSelection == "rock") {
         console.log("You Win! Rock beats Scissors")
         return "You Win! Rock beats Scissors"
-    } else if (computerWeapon == "rock" && playerWeapon == "paper") {
+    } else if (computerSelection == "rock" && playerSelection == "paper") {
         console.log("You Win! Paper beats Rock")
         return "You Win! Paper beats Rock"
     } else {
@@ -45,7 +46,7 @@ function compareWeapon(computerWeapon, playerWeapon) {
 // repeat the game for five rounds
 function game() {
     for (let i = 0; i < 5; i++) {
-        compareWeapon(computerPlay(), playerPlay())
+        compareSelection(computerPlay(), playerPlay())
     }
 }
 
