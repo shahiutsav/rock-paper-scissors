@@ -1,5 +1,5 @@
-// create list of "Rock, Paper, Scissors" for computer to choose from
-const computerArmory = ["rock", "paper", "scissors"]
+// create list of "Rock, Paper, Scissor" for computer to choose from
+const computerArmory = ["rock", "paper", "scissor"]
 
 // Randomly choose an object from the list
 function computerPlay() {
@@ -19,27 +19,29 @@ function playerPlay() {
 function compareSelection(computerSelection, playerSelection) {
     console.log(computerSelection)
     console.log(playerSelection)
-    if (computerSelection == "scissors" && playerSelection == "paper") {
-        console.log("You lose! Scissors beats Paper")
-        return "You lose! Scissors beats Paper"
-    } else if (computerSelection == "rock" && playerSelection == "scissors") {
-        console.log("You lose! Rock beats Scissors")
-        return "You lose! Rock beats Scissors"
-    } else if (computerSelection == "paper" && playerSelection == "rock") {
-        console.log("You lose! Paper beats Rock")
-        return "You lose! Paper beats Rock"
-    } else if (computerSelection == "paper" && playerSelection == "scissors") {
-        console.log("You Win! Scissors beats Paper")
-        return "You Win! Scissors beats Paper"
-    } else if (computerSelection == "scissors" && playerSelection == "rock") {
-        console.log("You Win! Rock beats Scissors")
-        return "You Win! Rock beats Scissors"
-    } else if (computerSelection == "rock" && playerSelection == "paper") {
-        console.log("You Win! Paper beats Rock")
-        return "You Win! Paper beats Rock"
-    } else {
+    if (computerSelection == playerSelection) {
         console.log("It's a draw")
         return "It's a draw"
+    } else if (
+        (computerSelection == "scissor" && playerSelection == "paper") ||
+        (computerSelection == "rock" && playerSelection == "scissor") ||
+        (computerSelection == "paper" && playerSelection == "rock")
+    ) {
+        console.log(
+            "You lose! " + computerSelection + " beats " + playerSelection
+        )
+        return "You lose! " + computerSelection + " beats " + playerSelection
+    } else if (
+        (computerSelection == "paper" && playerSelection == "scissor") ||
+        (computerSelection == "scissor" && playerSelection == "rock") ||
+        (computerSelection == "rock" && playerSelection == "paper")
+    ) {
+        console.log(
+            "You Win! " + playerSelection + " beats " + computerSelection
+        )
+        return "You Win! " + playerSelection + " beats " + computerSelection
+    } else {
+        console.log("Oops! Please enter a valid hand")
     }
 }
 
