@@ -8,14 +8,14 @@ function computerPlay() {
     return computerWeapon
 }
 
+playerInput = prompt("Please enter your 'weapon': ")
+playerWeapon = playerInput.toLowerCase()
+
 // compare the user input with computer's selection
 function compareWeapon(computerWeapon, playerWeapon) {
-    computerWeapon = computerPlay()
-    playerInput = prompt("Please enter your 'weapon': ")
-    playerWeapon = playerInput.toLowerCase()
     console.log(computerWeapon)
     console.log(playerWeapon)
 }
 
-compareWeapon()
+compareWeapon(computerPlay(), playerWeapon)
 // Declare the result
