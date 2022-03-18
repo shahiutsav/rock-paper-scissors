@@ -1,6 +1,10 @@
 // create list of "Rock, Paper, Scissor" for computer to choose from
 const computerArmory = ["rock", "paper", "scissor"]
 
+// Initial scores for both
+let computerScore = 0
+let playerScore = 0
+
 // Randomly choose an object from the list
 function computerPlay() {
     const computerSelection =
@@ -30,6 +34,7 @@ function compareSelection(computerSelection, playerSelection) {
         (computerSelection == "rock" && playerSelection == "scissor") ||
         (computerSelection == "paper" && playerSelection == "rock")
     ) {
+        computerScore += 1
         console.log(
             "You lose! " +
                 capitalize(computerSelection) +
@@ -48,6 +53,7 @@ function compareSelection(computerSelection, playerSelection) {
         (computerSelection == "scissor" && playerSelection == "rock") ||
         (computerSelection == "rock" && playerSelection == "paper")
     ) {
+        playerScore += 1
         console.log(
             "You Win! " +
                 capitalize(playerSelection) +
@@ -72,6 +78,8 @@ function compareSelection(computerSelection, playerSelection) {
 function game() {
     for (let i = 0; i < 5; i++) {
         compareSelection(computerPlay(), playerPlay())
+        console.log("Player Score: " + playerScore)
+        console.log("Computer Score:" + computerScore)
     }
 }
 
