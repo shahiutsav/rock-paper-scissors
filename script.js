@@ -8,8 +8,11 @@ function computerPlay() {
     return computerWeapon
 }
 
-playerInput = prompt("Please enter your 'weapon': ")
-playerWeapon = playerInput.toLowerCase()
+function playerPlay() {
+    playerInput = prompt("Please enter your 'weapon': ")
+    playerWeapon = playerInput.toLowerCase()
+    return playerWeapon
+}
 
 // compare the user input with computer's selection
 function compareWeapon(computerWeapon, playerWeapon) {
@@ -39,5 +42,11 @@ function compareWeapon(computerWeapon, playerWeapon) {
     }
 }
 
-compareWeapon(computerPlay(), playerWeapon)
-// Declare the result
+// repeat the game for five rounds
+function game() {
+    for (let i = 0; i < 5; i++) {
+        compareWeapon(computerPlay(), playerPlay())
+    }
+}
+
+game()
