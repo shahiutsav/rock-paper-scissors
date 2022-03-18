@@ -17,8 +17,8 @@ function playerPlay() {
 
 // compare the user input with computer's selection
 function compareSelection(computerSelection, playerSelection) {
-    console.log(computerSelection)
-    console.log(playerSelection)
+    console.log(capitalize(computerSelection))
+    console.log(capitalize(playerSelection))
     if (computerSelection == playerSelection) {
         console.log("It's a draw")
         return "It's a draw"
@@ -28,18 +28,34 @@ function compareSelection(computerSelection, playerSelection) {
         (computerSelection == "paper" && playerSelection == "rock")
     ) {
         console.log(
-            "You lose! " + computerSelection + " beats " + playerSelection
+            "You lose! " +
+                capitalize(computerSelection) +
+                " beats " +
+                capitalize(playerSelection)
         )
-        return "You lose! " + computerSelection + " beats " + playerSelection
+        return (
+            "You lose! " +
+            capitalize(computerSelection) +
+            " beats " +
+            capitalize(playerSelection)
+        )
     } else if (
         (computerSelection == "paper" && playerSelection == "scissor") ||
         (computerSelection == "scissor" && playerSelection == "rock") ||
         (computerSelection == "rock" && playerSelection == "paper")
     ) {
         console.log(
-            "You Win! " + playerSelection + " beats " + computerSelection
+            "You Win! " +
+                capitalize(playerSelection) +
+                " beats " +
+                capitalize(computerSelection)
         )
-        return "You Win! " + playerSelection + " beats " + computerSelection
+        return (
+            "You Win! " +
+            capitalize(playerSelection) +
+            " beats " +
+            capitalize(computerSelection)
+        )
     } else {
         console.log("Oops! Please enter a valid hand")
     }
@@ -53,3 +69,10 @@ function game() {
 }
 
 game()
+
+// Capitalize strings
+function capitalize(selection) {
+    selectionCapitalized =
+        selection.charAt(0).toUpperCase() + selection.slice(1)
+    return selectionCapitalized
+}
