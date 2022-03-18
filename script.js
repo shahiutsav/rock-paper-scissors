@@ -19,10 +19,13 @@ function playerPlay() {
 function compareSelection(computerSelection, playerSelection) {
     console.log(capitalize(computerSelection))
     console.log(capitalize(playerSelection))
+
+    // Draw case scenario
     if (computerSelection == playerSelection) {
         console.log("It's a draw")
         return "It's a draw"
-    } else if (
+    } // Every computer wins
+    else if (
         (computerSelection == "scissor" && playerSelection == "paper") ||
         (computerSelection == "rock" && playerSelection == "scissor") ||
         (computerSelection == "paper" && playerSelection == "rock")
@@ -39,7 +42,8 @@ function compareSelection(computerSelection, playerSelection) {
             " beats " +
             capitalize(playerSelection)
         )
-    } else if (
+    } // Every user wins
+    else if (
         (computerSelection == "paper" && playerSelection == "scissor") ||
         (computerSelection == "scissor" && playerSelection == "rock") ||
         (computerSelection == "rock" && playerSelection == "paper")
@@ -56,8 +60,11 @@ function compareSelection(computerSelection, playerSelection) {
             " beats " +
             capitalize(computerSelection)
         )
-    } else {
-        console.log("Oops! Please enter a valid hand")
+    } // Invalid input
+    else {
+        console.log(
+            "Oops! " + capitalize(playerSelection) + " is not a valid hand"
+        )
     }
 }
 
