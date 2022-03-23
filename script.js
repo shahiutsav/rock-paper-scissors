@@ -12,13 +12,6 @@ function computerPlay() {
     return computerSelection
 }
 
-// Take user input
-function playerPlay() {
-    playerInput = "rock"
-    playerSelection = playerInput.toLowerCase()
-    return playerSelection
-}
-
 // compare the user input with computer's selection
 function compareSelection(computerSelection, playerSelection) {
     console.log(capitalize(computerSelection))
@@ -75,12 +68,10 @@ function compareSelection(computerSelection, playerSelection) {
 }
 
 // repeat the game for five rounds
-function game() {
-    // for (let i = 0; i < 5; i++) {
-    compareSelection(computerPlay(), playerPlay())
+function game(playerSelection) {
+    compareSelection(computerPlay(), playerSelection)
     console.log("Player Score: " + playerScore)
     console.log("Computer Score:" + computerScore)
-    // }
 }
 
 // Capitalize strings
