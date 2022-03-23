@@ -14,7 +14,7 @@ function computerPlay() {
 
 // Take user input
 function playerPlay() {
-    playerInput = prompt("Please enter your hand: ")
+    playerInput = "rock"
     playerSelection = playerInput.toLowerCase()
     return playerSelection
 }
@@ -76,14 +76,12 @@ function compareSelection(computerSelection, playerSelection) {
 
 // repeat the game for five rounds
 function game() {
-    for (let i = 0; i < 5; i++) {
-        compareSelection(computerPlay(), playerPlay())
-        console.log("Player Score: " + playerScore)
-        console.log("Computer Score:" + computerScore)
-    }
+    // for (let i = 0; i < 5; i++) {
+    compareSelection(computerPlay(), playerPlay())
+    console.log("Player Score: " + playerScore)
+    console.log("Computer Score:" + computerScore)
+    // }
 }
-
-game()
 
 // Capitalize strings
 function capitalize(selection) {
