@@ -1,5 +1,5 @@
-// create list of "Rock, Paper, Scissor" for computer to choose from
-const computerArmory = ["rock", "paper", "scissor"]
+// create list of "Rock, Paper, Scissors" for computer to choose from
+const computerArmory = ["rock", "paper", "scissors"]
 
 // Initial scores for both
 let computerScore = 0
@@ -30,8 +30,8 @@ function compareSelection(computerSelection, playerSelection) {
         return "It's a draw"
     } // Every computer wins
     else if (
-        (computerSelection == "scissor" && playerSelection == "paper") ||
-        (computerSelection == "rock" && playerSelection == "scissor") ||
+        (computerSelection == "scissors" && playerSelection == "paper") ||
+        (computerSelection == "rock" && playerSelection == "scissors") ||
         (computerSelection == "paper" && playerSelection == "rock")
     ) {
         computerScore += 1
@@ -49,8 +49,8 @@ function compareSelection(computerSelection, playerSelection) {
         )
     } // Every user wins
     else if (
-        (computerSelection == "paper" && playerSelection == "scissor") ||
-        (computerSelection == "scissor" && playerSelection == "rock") ||
+        (computerSelection == "paper" && playerSelection == "scissors") ||
+        (computerSelection == "scissors" && playerSelection == "rock") ||
         (computerSelection == "rock" && playerSelection == "paper")
     ) {
         playerScore += 1
