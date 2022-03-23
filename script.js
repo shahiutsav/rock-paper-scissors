@@ -69,9 +69,16 @@ function compareSelection(computerSelection, playerSelection) {
 
 // repeat the game for five rounds
 function game(playerSelection) {
+    if (playerScore === 5 || computerScore === 5) {
+        const scoreDisplay = document.querySelector(".score")
+        scoreDisplay.textContent = "The game has ended"
+    }
     compareSelection(computerPlay(), playerSelection)
-    console.log("Player Score: " + playerScore)
-    console.log("Computer Score:" + computerScore)
+    const playerScoreDisplay = document.querySelector("#playerScore")
+    playerScoreDisplay.textContent = "Player Score: " + playerScore
+
+    const computerScoreDisplay = document.querySelector("#computerScore")
+    computerScoreDisplay.textContent = "Computer Score: " + computerScore
 }
 
 // Capitalize strings

@@ -9,10 +9,17 @@
         <title>Rochambeau</title>
     </head>
     <body>
-        <button class="btn-hand" onclick="game('rock')">Rock</button>
-        <button class="btn-hand" onclick="game('paper')">Paper</button>
-        <button class="btn-hand" onclick="game('scissors')">
-            Scissors
-        </button>
+        <div class="score">
+            <h3>Score</h3>
+            <p id="playerScore">Player Score: 0</p>
+            <p id="computerScore">Computer Score: 0</p>
+        </div>
+        <div class="buttons">
+            <button class="btn-hand" onclick="game('rock')">Rock</button>
+            <button class="btn-hand" onclick="game('paper')">Paper</button>
+            <button class="btn-hand" onclick="game('scissors')">
+                Scissors
+            </button>
+        </div>
     </body>
 </html>
