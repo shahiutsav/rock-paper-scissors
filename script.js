@@ -2,6 +2,7 @@
 const scoreInfo = document.querySelector("#scoreInfo")
 const playerScoreDisplay = document.querySelector("#playerScore")
 const computerScoreDisplay = document.querySelector("#computerScore")
+const scoreDisplay = document.querySelector(".score-comparison")
 
 // create list of "Rock, Paper, Scissors" for computer to choose from
 const computerArmory = ["rock", "paper", "scissors"]
@@ -54,11 +55,24 @@ function compareSelection(computerSelection, playerSelection) {
 // repeat the game for five rounds
 function game(playerSelection) {
     if (playerScore === 5 || computerScore === 5) {
-        scoreInfo.textContent = "The game has ended"
+        scoreDisplay.textContent = "Game Over!"
+        if (playerScore > computerScore) {
+            scoreInfo.textContent = `You Won! You were ahead by ${
+                playerScore - computerScore
+            } point(s)`
+        } else {
+            scoreInfo.textContent = `You Lost! You were behind by ${
+                computerScore - playerScore
+            } point(s)`
+        }
+    } else {
+        scoreInfo.textContent = compareSelection(
+            computerPlay(),
+            playerSelection
+        )
+        playerScoreDisplay.textContent = "Player Score: " + playerScore
+        computerScoreDisplay.textContent = "Computer Score: " + computerScore
     }
-    scoreInfo.textContent = compareSelection(computerPlay(), playerSelection)
-    playerScoreDisplay.textContent = "Player Score: " + playerScore
-    computerScoreDisplay.textContent = "Computer Score: " + computerScore
 }
 
 // Capitalize strings
