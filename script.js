@@ -22,7 +22,7 @@ function computerPlay() {
 function compareSelection(computerSelection, playerSelection) {
     // Draw case scenario
     if (computerSelection == playerSelection) {
-        return "It's a draw"
+        return "It's a draw this round"
     } // every time computer wins
     else if (
         (computerSelection == "scissors" && playerSelection == "paper") ||
@@ -30,12 +30,9 @@ function compareSelection(computerSelection, playerSelection) {
         (computerSelection == "paper" && playerSelection == "rock")
     ) {
         computerScore += 1
-        return (
-            "You lose! " +
-            capitalize(computerSelection) +
-            " beats " +
-            capitalize(playerSelection)
-        )
+        return `Oh oh! Your ${capitalize(
+            playerSelection
+        )} got beat by opponent's ${capitalize(computerSelection)}`
     } // every user wins
     else if (
         (computerSelection == "paper" && playerSelection == "scissors") ||
@@ -43,25 +40,25 @@ function compareSelection(computerSelection, playerSelection) {
         (computerSelection == "rock" && playerSelection == "paper")
     ) {
         playerScore += 1
-        return (
-            "You Win! " +
-            capitalize(playerSelection) +
-            " beats " +
-            capitalize(computerSelection)
-        )
+        return `Great! Your ${capitalize(
+            playerSelection
+        )} annihilated your opponent's ${capitalize(computerSelection)}`
     }
 }
 
 // repeat the game for five rounds
 function game(playerSelection) {
     if (playerScore === 5 || computerScore === 5) {
-        scoreDisplay.textContent = "Game Over!"
         if (playerScore > computerScore) {
-            scoreInfo.textContent = `You Won! You were ahead by ${
+            scoreDisplay.textContent = "You Won!"
+            scoreInfo.classList.add("win")
+            scoreInfo.textContent = `Great going! You won by ${
                 playerScore - computerScore
             } point(s)`
         } else {
-            scoreInfo.textContent = `You Lost! You were behind by ${
+            scoreDisplay.textContent = "Game Over!"
+            scoreInfo.classList.add("lost")
+            scoreInfo.textContent = `Bummer! You lost by ${
                 computerScore - playerScore
             } point(s)`
         }

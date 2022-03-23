@@ -44,3 +44,13 @@ body > h3 {
 .btn-hand:hover {
     background-color: #34495e;
 }
+
+.win {
+    color: #10ac84;
+    font-weight: bold;
+}
+
+.lost {
+    color: #ee5253;
+    font-weight: bold;
+}
