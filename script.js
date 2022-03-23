@@ -3,6 +3,7 @@ const scoreInfo = document.querySelector("#scoreInfo")
 const playerScoreDisplay = document.querySelector("#playerScore")
 const computerScoreDisplay = document.querySelector("#computerScore")
 const scoreDisplay = document.querySelector(".score-comparison")
+const buttons = document.querySelector(".buttons")
 
 // create list of "Rock, Paper, Scissors" for computer to choose from
 const computerArmory = ["rock", "paper", "scissors"]
@@ -49,6 +50,16 @@ function compareSelection(computerSelection, playerSelection) {
 // repeat the game for five rounds
 function game(playerSelection) {
     if (playerScore === 5 || computerScore === 5) {
+        const btnRestart = document.createElement("button")
+        btnRestart.classList.add("btn-replay")
+        btnRestart.textContent = "Replay"
+
+        while (buttons.firstChild) {
+            buttons.removeChild(buttons.lastChild)
+        }
+
+        buttons.appendChild(btnRestart)
+
         if (playerScore > computerScore) {
             scoreDisplay.textContent = "You Won!"
             scoreInfo.classList.add("win")
