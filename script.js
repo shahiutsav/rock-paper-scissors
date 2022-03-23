@@ -1,3 +1,8 @@
+// Get elements from the html document
+const scoreInfo = document.querySelector("#scoreInfo")
+const playerScoreDisplay = document.querySelector("#playerScore")
+const computerScoreDisplay = document.querySelector("#computerScore")
+
 // create list of "Rock, Paper, Scissors" for computer to choose from
 const computerArmory = ["rock", "paper", "scissors"]
 
@@ -14,55 +19,34 @@ function computerPlay() {
 
 // compare the user input with computer's selection
 function compareSelection(computerSelection, playerSelection) {
-    console.log(capitalize(computerSelection))
-    console.log(capitalize(playerSelection))
-
     // Draw case scenario
     if (computerSelection == playerSelection) {
-        console.log("It's a draw")
         return "It's a draw"
-    } // Every computer wins
+    } // every time computer wins
     else if (
         (computerSelection == "scissors" && playerSelection == "paper") ||
         (computerSelection == "rock" && playerSelection == "scissors") ||
         (computerSelection == "paper" && playerSelection == "rock")
     ) {
         computerScore += 1
-        console.log(
-            "You lose! " +
-                capitalize(computerSelection) +
-                " beats " +
-                capitalize(playerSelection)
-        )
         return (
             "You lose! " +
             capitalize(computerSelection) +
             " beats " +
             capitalize(playerSelection)
         )
-    } // Every user wins
+    } // every user wins
     else if (
         (computerSelection == "paper" && playerSelection == "scissors") ||
         (computerSelection == "scissors" && playerSelection == "rock") ||
         (computerSelection == "rock" && playerSelection == "paper")
     ) {
         playerScore += 1
-        console.log(
-            "You Win! " +
-                capitalize(playerSelection) +
-                " beats " +
-                capitalize(computerSelection)
-        )
         return (
             "You Win! " +
             capitalize(playerSelection) +
             " beats " +
             capitalize(computerSelection)
-        )
-    } // Invalid input
-    else {
-        console.log(
-            "Oops! " + capitalize(playerSelection) + " is not a valid hand"
         )
     }
 }
@@ -70,14 +54,10 @@ function compareSelection(computerSelection, playerSelection) {
 // repeat the game for five rounds
 function game(playerSelection) {
     if (playerScore === 5 || computerScore === 5) {
-        const scoreDisplay = document.querySelector(".score")
-        scoreDisplay.textContent = "The game has ended"
+        scoreInfo.textContent = "The game has ended"
     }
-    compareSelection(computerPlay(), playerSelection)
-    const playerScoreDisplay = document.querySelector("#playerScore")
+    scoreInfo.textContent = compareSelection(computerPlay(), playerSelection)
     playerScoreDisplay.textContent = "Player Score: " + playerScore
-
-    const computerScoreDisplay = document.querySelector("#computerScore")
     computerScoreDisplay.textContent = "Computer Score: " + computerScore
 }
 
