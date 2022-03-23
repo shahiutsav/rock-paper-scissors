@@ -1,7 +1,29 @@
+body {
+    font-family: "Titillium Web", sans-serif;
+    background-color: #222f3e;
+    color: white;
+}
+
+.score {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 50vh;
+    gap: 12px;
+}
+
+.score h3 {
+    font-size: 68px;
+}
+
+.score-comparison {
+    display: flex;
+    gap: 12px;
+}
+
 .buttons {
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 .btn-hand {
     border-style: none;
