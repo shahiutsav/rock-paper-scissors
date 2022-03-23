@@ -50,16 +50,7 @@ function compareSelection(computerSelection, playerSelection) {
 // repeat the game for five rounds
 function game(playerSelection) {
     if (playerScore === 5 || computerScore === 5) {
-        const btnRestart = document.createElement("button")
-        btnRestart.classList.add("btn-replay")
-        btnRestart.textContent = "Replay"
-
-        while (buttons.firstChild) {
-            buttons.removeChild(buttons.lastChild)
-        }
-
-        buttons.appendChild(btnRestart)
-
+        replayButton()
         if (playerScore > computerScore) {
             scoreDisplay.textContent = "You Won!"
             scoreInfo.classList.add("win")
@@ -81,6 +72,18 @@ function game(playerSelection) {
         playerScoreDisplay.textContent = "Player Score: " + playerScore
         computerScoreDisplay.textContent = "Computer Score: " + computerScore
     }
+}
+
+// Display replay button
+function replayButton() {
+    const btnRestart = document.createElement("button")
+    btnRestart.classList.add("btn-replay")
+    btnRestart.textContent = "Replay"
+
+    while (buttons.firstChild) {
+        buttons.removeChild(buttons.lastChild)
+    }
+    buttons.appendChild(btnRestart)
 }
 
 // Capitalize strings
