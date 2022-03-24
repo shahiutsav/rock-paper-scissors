@@ -84,6 +84,7 @@ function replayButton() {
         buttons.removeChild(buttons.lastChild)
     }
     buttons.appendChild(btnRestart)
+    btnRestart.onclick = () => location.reload()
 }
 
 // Capitalize strings
