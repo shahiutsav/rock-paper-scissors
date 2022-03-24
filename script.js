@@ -49,6 +49,7 @@ function compareSelection(computerSelection, playerSelection) {
 
 // repeat the game for five rounds
 function game(playerSelection) {
+    scoreInfo.textContent = compareSelection(computerPlay(), playerSelection)
     if (playerScore === 5 || computerScore === 5) {
         replayButton()
         if (playerScore > computerScore) {
@@ -65,10 +66,6 @@ function game(playerSelection) {
             } point(s)`
         }
     } else {
-        scoreInfo.textContent = compareSelection(
-            computerPlay(),
-            playerSelection
-        )
         playerScoreDisplay.textContent = "Player Score: " + playerScore
         computerScoreDisplay.textContent = "Computer Score: " + computerScore
     }
